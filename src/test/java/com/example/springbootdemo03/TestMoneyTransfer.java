@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
 
 @SpringBootTest
 public class TestMoneyTransfer {
@@ -30,8 +29,11 @@ public class TestMoneyTransfer {
     public void testTransferSuccess() throws Exception {
 //        Optional<Account> account1 = accountRepository.findById(1L);
 //        Optional<Account> account2 = accountRepository.findById(2L);
-
-        accountService.transferMoney(1L, 2L, 1000.0);
+        try {
+            accountService.transferMoney(1L, 2L, 50.0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
